@@ -72,6 +72,7 @@
               <a href="article.html" class="text-indigo-400 font-semibold"
                 >Reviews</a
               >
+              <a href="#" class="hover:text-indigo-400 transition">Tutorials</a>
             </div>
 
             <a
@@ -208,8 +209,44 @@
       // 1. DATA SOURCE (15 Realistic News Items - Dec 2025)
       // ==========================================
       const articles = [
+        // --- 1. EXISTING PAGES (LINKS RESTORED) ---
         {
           id: 1,
+          title: "Why RAM Prices Are Skyrocketing",
+          category: "Hardware",
+          image:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrECyHsixuJHjUbGFxCYfcl-vRZV0Nk6xyvQ&s",
+          excerpt:
+            "Memory kits are getting expensive again. We analyze the market trends affecting DDR5 pricing.",
+          readTime: "6 min",
+          link: "/article-pages/ram_price_increase.html",
+        },
+        {
+          id: 2,
+          title: "The RISC-V Revolution: Is Open Source Silicon the Future?",
+          category: "Engineering",
+          image:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Yunsup_Lee_holding_RISC_V_prototype_chip.jpg/250px-Yunsup_Lee_holding_RISC_V_prototype_chip.jpg",
+          excerpt:
+            "A tectonic shift is occurring in the embedded space as RISC-V challenges the x86 and ARM duopoly.",
+          readTime: "8 min",
+          link: "/article-pages/the_riscv_revolution.html",
+        },
+        {
+          id: 3,
+          title: "Is AI Destruction or Change?",
+          category: "Artificial Intelligence",
+          image:
+            "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2065&auto=format&fit=crop",
+          excerpt:
+            "Every major technological leap has been greeted with a mixture of utopian hope and apocalyptic fear.",
+          readTime: "10 min",
+          link: "/article-pages/ai_destruction.html",
+        },
+
+        // --- 2. NEW REALISTIC NEWS (LINKS ARE #) ---
+        {
+          id: 4,
           title: "NVIDIA RTX 5090 Review: Is the 600W Power Draw Worth It?",
           category: "Hardware",
           image:
@@ -220,7 +257,7 @@
           link: "#",
         },
         {
-          id: 2,
+          id: 5,
           title:
             "React 19.2 is Here: Understanding the New <Activity> Component",
           category: "Web Dev",
@@ -232,19 +269,30 @@
           link: "#",
         },
         {
-          id: 3,
+          id: 6,
           title:
             "The Rise of Agentic AI: Why 2026 is the Year of Autonomous Bots",
           category: "AI & Future Tech",
           image:
-            "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=600",
+            "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=600",
           excerpt:
             "Moving beyond LLMs, 'Agentic AI' can actively perform tasks on your machine. We explore the security implications.",
           readTime: "10 min",
           link: "#",
         },
         {
-          id: 5,
+          id: 7,
+          title: "Minecraft 1.22 Update: The Redstone Revolution We Needed",
+          category: "Minecraft Technical",
+          image:
+            "https://images.unsplash.com/photo-1607513168936-96c2e36633c7?auto=format&fit=crop&q=80&w=600",
+          excerpt:
+            "Mojang's latest snapshot introduces movable tile entities and faster hoppers. Here is the technical breakdown.",
+          readTime: "6 min",
+          link: "#",
+        },
+        {
+          id: 8,
           title:
             "Cybersecurity 2025: AI-Driven Phishing is Getting Impossible to Spot",
           category: "Security",
@@ -256,18 +304,7 @@
           link: "#",
         },
         {
-          id: 6,
-          title: "RISC-V Challenges ARM: Google's New Server Chip Explained",
-          category: "Hardware",
-          image:
-            "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600",
-          excerpt:
-            "Open source silicon is finally hitting the datacenter. Performance per watt looks promising vs traditional x86.",
-          readTime: "11 min",
-          link: "#",
-        },
-        {
-          id: 7,
+          id: 9,
           title:
             "Why Rust is Finally Replacing C in the Linux Kernel (For Real)",
           category: "Server/DevOps",
@@ -279,7 +316,7 @@
           link: "#",
         },
         {
-          id: 8,
+          id: 10,
           title: "TypeScript 6.0 Beta: Native Type Syntax Proposal?",
           category: "Web Dev",
           image:
@@ -290,7 +327,7 @@
           link: "#",
         },
         {
-          id: 9,
+          id: 11,
           title: "Quantum Decryption: Are Our RSA Keys Safe in 2026?",
           category: "Security",
           image:
@@ -301,7 +338,7 @@
           link: "#",
         },
         {
-          id: 10,
+          id: 12,
           title: "Building Micro-Frontends with Vite and Module Federation",
           category: "Web Dev",
           image:
@@ -312,7 +349,7 @@
           link: "#",
         },
         {
-          id: 11,
+          id: 13,
           title: "The End of Kubernetes? Why 'Wasm on the Edge' is Trending",
           category: "Server/DevOps",
           image:
@@ -323,7 +360,7 @@
           link: "#",
         },
         {
-          id: 13,
+          id: 14,
           title: "Solid State Batteries: The 2026 Smartphone Revolution?",
           category: "Hardware",
           image:
@@ -331,17 +368,6 @@
           excerpt:
             "Samsung's latest prototype promises 2-day battery life and zero degradation. Is it ready for the S26?",
           readTime: "6 min",
-          link: "#",
-        },
-        {
-          id: 14,
-          title: "OpenAI's 'Operator': The AI That Uses Your Computer",
-          category: "AI & Future Tech",
-          image:
-            "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=600",
-          excerpt:
-            "A hands-on review of the new agent that can browse the web, book flights, and code for you.",
-          readTime: "8 min",
           link: "#",
         },
         {
@@ -386,6 +412,8 @@
           "Minecraft Technical": "bg-green-600",
           "AI & Future Tech": "bg-purple-600",
           Security: "bg-red-600",
+          Engineering: "bg-blue-500",
+          "Artificial Intelligence": "bg-indigo-500",
         };
         // Default color if category not found
         return colors[category] || "bg-indigo-600";
