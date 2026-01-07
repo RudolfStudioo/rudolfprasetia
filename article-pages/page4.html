@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Why RAM Prices Are Skyrocketing? | Nexus Tech</title>
+    <title>NVIDIA RTX 5090 Review: Power Hungry Beast | Nexus Tech</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
@@ -23,6 +23,12 @@
       .prose h3 {
         color: var(--tw-prose-headings);
       }
+      .prose table {
+        font-size: 0.875em;
+      }
+      .prose th {
+        text-align: left;
+      }
     </style>
   </head>
   <body
@@ -37,11 +43,11 @@
             href="index.html"
             class="flex-shrink-0 flex items-center gap-2 cursor-pointer transition hover:opacity-80"
           >
-            <img
-              src="f.jpg"
-              alt="Nexus Tech Logo"
-              class="w-8 h-8 rounded-full border border-slate-600"
-            />
+            <div
+              class="w-8 h-8 rounded-full border border-slate-600 bg-indigo-600 flex items-center justify-center text-white font-bold"
+            >
+              N
+            </div>
             <span class="font-bold text-xl text-white tracking-wide"
               >Nexus Tech</span
             >
@@ -72,22 +78,22 @@
         <a href="index.html" class="hover:text-indigo-600 transition">Home</a>
         <span class="mx-2">/</span>
         <a href="article.html" class="hover:text-indigo-600 transition"
-          >Articles</a
+          >Reviews</a
         >
         <span class="mx-2">/</span>
-        <span class="text-indigo-600">Hardware News</span>
+        <span class="text-indigo-600">GPU Benchmark</span>
       </nav>
 
       <header class="mb-10 text-center md:text-left">
         <div
-          class="inline-block px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-xs font-bold mb-4"
+          class="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold mb-4"
         >
-          Hardware Market
+          Flagship Review
         </div>
         <h1
           class="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6"
         >
-          Why RAM Prices Are Skyrocketing Right Now
+          NVIDIA RTX 5090 Review: Is the 600W Power Draw Worth It?
         </h1>
 
         <div
@@ -101,11 +107,11 @@
           <div class="text-left">
             <p class="text-sm font-bold text-slate-900">Alex Chen</p>
             <p class="text-xs text-slate-500">
-              Senior Hardware Analyst • Dec 12, 2025
+              Senior Hardware Analyst • Jan 15, 2026
             </p>
           </div>
           <div class="ml-auto text-slate-400 text-sm hidden sm:block">
-            <i class="fa-regular fa-clock mr-1"></i> 6 min read
+            <i class="fa-regular fa-clock mr-1"></i> 12 min read
           </div>
         </div>
       </header>
@@ -114,83 +120,128 @@
         class="mb-12 rounded-2xl overflow-hidden shadow-xl border border-slate-200"
       >
         <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrECyHsixuJHjUbGFxCYfcl-vRZV0Nk6xyvQ&s"
-          alt="DDR5 RAM Modules"
+          src="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&q=80&w=2070"
+          alt="NVIDIA RTX 5090 Setup"
           class="w-full h-[400px] object-cover hover:scale-105 transition duration-700 ease-in-out"
         />
         <figcaption
           class="text-center text-xs text-slate-400 mt-2 py-2 bg-slate-50 italic"
         >
-          Market trends indicate a sharp rise in DDR5 and DDR4 pricing globally.
+          The sheer size of the Blackwell flagship card requires a spacious
+          case.
         </figcaption>
       </figure>
 
       <article class="prose prose-lg prose-slate max-w-none text-slate-700">
         <p class="lead text-xl text-slate-600 mb-8 font-light">
-          If you've been planning a PC build in late 2024 or 2025, you might
-          have noticed a painful trend: memory kits that cost \$90 a few months
-          ago are now pushing \$130. Here is the technical breakdown of why this
-          is happening.
+          We benchmark the new Blackwell architecture. It destroys 4K ray
+          tracing, but your PSU might need a serious upgrade.
+        </p>
+
+        <p>
+          The King is dead, long live the King. After two years of dominance by
+          the RTX 4090, NVIDIA has finally unleashed the
+          <strong>GeForce RTX 5090</strong>. Based on the new Blackwell
+          architecture, this card promises a generational leap that makes the
+          previous flagship look like a mid-range toy. But with a massive
+          <strong>600W TDP</strong>, the question isn't just "can you afford the
+          card?"—it's "can your house handle it?"
         </p>
 
         <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">
-          1. The AI Gold Rush (HBM vs. DDR)
+          1. Specs: The Numbers Game
         </h2>
         <p class="mb-6">
-          The biggest culprit is actually
-          <strong>Artificial Intelligence</strong>. Companies like Nvidia need
-          massive amounts of HBM3 and HBM3e (High Bandwidth Memory) for their AI
-          GPUs.
+          NVIDIA hasn't held back. We are looking at a 32GB GDDR7 memory buffer
+          with bandwidth exceeding 1.5 TB/s. Here is how it stacks up against
+          its predecessor:
         </p>
-        <p class="mb-6">
-          Major manufacturers like
-          <span class="font-semibold text-indigo-600"
-            >SK Hynix, Samsung, and Micron</span
-          >
-          have shifted their production lines away from standard consumer DDR5
-          to produce HBM because the profit margins on AI memory are
-          significantly higher.
-        </p>
-        <div
-          class="bg-indigo-50 border-l-4 border-indigo-500 p-4 my-6 italic text-slate-700"
-        >
-          "Every wafer allocated to HBM is one less wafer for consumer DDR5.
-          Supply is shrinking while demand remains steady."
+
+        <div class="overflow-x-auto mb-8 rounded-lg border border-slate-200">
+          <table class="w-full text-sm text-left text-slate-600">
+            <thead class="text-xs text-slate-700 uppercase bg-slate-100">
+              <tr>
+                <th scope="col" class="px-6 py-3">Spec</th>
+                <th scope="col" class="px-6 py-3">RTX 4090</th>
+                <th scope="col" class="px-6 py-3 text-indigo-600">RTX 5090</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bg-white border-b">
+                <td class="px-6 py-4 font-medium text-slate-900">
+                  Architecture
+                </td>
+                <td class="px-6 py-4">Ada Lovelace</td>
+                <td class="px-6 py-4">Blackwell</td>
+              </tr>
+              <tr class="bg-white border-b">
+                <td class="px-6 py-4 font-medium text-slate-900">VRAM</td>
+                <td class="px-6 py-4">24GB GDDR6X</td>
+                <td class="px-6 py-4 font-bold">32GB GDDR7</td>
+              </tr>
+              <tr class="bg-white border-b">
+                <td class="px-6 py-4 font-medium text-slate-900">
+                  TDP (Power)
+                </td>
+                <td class="px-6 py-4">450W</td>
+                <td class="px-6 py-4 font-bold text-red-600">600W</td>
+              </tr>
+              <tr class="bg-white">
+                <td class="px-6 py-4 font-medium text-slate-900">CUDA Cores</td>
+                <td class="px-6 py-4">16,384</td>
+                <td class="px-6 py-4">21,760</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
         <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">
-          2. Strategic Production Cuts
+          2. The 600W Elephant in the Room
         </h2>
         <p class="mb-6">
-          Throughout 2023, RAM prices were historically low due to an
-          oversupply. To stop losing money, the "Big Three" manufacturers
-          intentionally cut production utilization rates by up to 50%.
+          Let's address the controversy immediately. Yes, the TDP is rated at
+          600 Watts. In our stress testing using <em>Cyberpunk 2077</em> with
+          Path Tracing overdrive, we saw peak system power draw hit
+          <strong>850W</strong> (CPU included).
         </p>
         <p class="mb-6">
-          These cuts have now successfully drained the excess inventory. With
-          inventory levels normalized and production lines still not running at
-          100% capacity for consumer chips, prices naturally climb.
+          This means if you are running an 850W power supply, you are living on
+          the edge. NVIDIA has introduced the new
+          <strong>12V-2x6 connector</strong> standard to prevent the melting
+          issues seen on the 4090, but the sheer thermal output is undeniable.
+          You will need a high-airflow case, and ideally, a 1000W or 1200W ATX
+          3.1 certified PSU.
         </p>
 
-        <h2 class="2xl font-bold text-slate-900 mt-8 mb-4">
-          3. The Shift to DDR5 Standard
+        <div
+          class="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-6 italic text-slate-700"
+        >
+          "Warning: Do not attempt to daisy-chain PCIe cables for this card. Use
+          a native ATX 3.1 cable to ensure stable power delivery."
+        </div>
+
+        <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">
+          3. Performance: Is it worth the heat?
         </h2>
+        <p class="mb-6">In short: <strong>Absolutely.</strong></p>
         <p class="mb-6">
-          As Intel's Core Ultra and AMD's Ryzen 9000 series push DDR5 as the
-          exclusive standard, the demand for old DDR4 is dropping, but the
-          demand for high-speed DDR5 (6000MHz+) is spiking. Manufacturing yields
-          for these high-speed bin modules are improving, but not fast enough to
-          match the holiday and upgrade season demand.
+          At 4K resolution, the RTX 5090 is roughly 60-70% faster than the RTX
+          4090 in pure rasterization. Turn on Ray Tracing and DLSS 4.0, and that
+          gap widens. We were hitting 120 FPS in <em>Alan Wake 2</em> at 4K Max
+          Settings. It is the first card that truly makes 8K gaming a viable
+          conversation, not just a marketing gimmick.
         </p>
 
-        <h3 class="text-xl font-bold text-slate-900 mt-8 mb-4">
-          Should you buy now?
-        </h3>
+        <h3 class="text-xl font-bold text-slate-900 mt-8 mb-4">The Verdict</h3>
         <p class="mb-6">
-          Analysts predict prices will continue to rise by another
-          <strong>15-20% through Q1 2026</strong>. If you are sitting on the
-          fence for a build, locking in your memory kit now might save you
-          \$30-\$50 compared to waiting for next month.
+          The NVIDIA RTX 5090 is an engineering marvel that demands respect—and
+          a robust electrical circuit. It is not for the budget-conscious, nor
+          for those with small form-factor cases. But if you want the absolute
+          best performance money can buy, Blackwell has set a new bar that
+          likely won't be cleared for years.
+        </p>
+        <p>
+          Just make sure you budget an extra $200 for a new Power Supply Unit.
         </p>
       </article>
 
@@ -199,19 +250,19 @@
         <div class="flex flex-wrap gap-2">
           <span
             class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-full hover:bg-indigo-600 hover:text-white transition cursor-pointer"
-            >#Hardware</span
+            >#NVIDIA</span
           >
           <span
             class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-full hover:bg-indigo-600 hover:text-white transition cursor-pointer"
-            >#RAM</span
+            >#RTX5090</span
           >
           <span
             class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-full hover:bg-indigo-600 hover:text-white transition cursor-pointer"
-            >#MarketAnalysis</span
+            >#Blackwell</span
           >
           <span
             class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-full hover:bg-indigo-600 hover:text-white transition cursor-pointer"
-            >#PCBuilding</span
+            >#Benchmarks</span
           >
         </div>
       </div>
@@ -232,7 +283,7 @@
             ><i class="fa-brands fa-youtube text-xl"></i
           ></a>
         </div>
-        <p>&copy; 2025 Nexus Tech. All rights reserved.</p>
+        <p>&copy; 2026 Nexus Tech. All rights reserved.</p>
       </div>
     </footer>
   </body>

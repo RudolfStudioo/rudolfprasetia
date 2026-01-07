@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>System Update | Nexus Tech</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap");
+      body {
+        font-family: "Inter", sans-serif;
+      }
+
+      /* Animasi untuk garis loading */
+      @keyframes load {
+        0% {
+          width: 0%;
+        }
+        50% {
+          width: 70%;
+        }
+        100% {
+          width: 95%;
+        }
+      }
+
+      .animate-loader {
+        animation: load 4s ease-out forwards;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-slate-900 text-white h-screen flex flex-col items-center justify-center overflow-hidden relative"
+  >
+    <div
+      class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 opacity-20"
+    >
+      <div
+        class="absolute top-10 left-10 w-64 h-64 bg-indigo-600 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"
+      ></div>
+      <div
+        class="absolute bottom-10 right-10 w-64 h-64 bg-cyan-600 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"
+        style="animation-delay: 2s"
+      ></div>
+    </div>
+
+    <main class="z-10 text-center max-w-lg w-full px-6">
+      <div class="relative inline-block mb-8">
+        <div
+          class="absolute inset-0 bg-indigo-500 blur-xl opacity-50 rounded-full"
+        ></div>
+        <div
+          class="relative bg-slate-800 w-24 h-24 rounded-2xl border border-slate-700 flex items-center justify-center mx-auto shadow-2xl"
+        >
+          <i
+            class="fa-solid fa-server text-4xl text-indigo-400 animate-pulse"
+          ></i>
+        </div>
+        <div
+          class="absolute -bottom-2 -right-2 w-6 h-6 bg-slate-900 rounded-full flex items-center justify-center border border-slate-700"
+        >
+          <div class="w-3 h-3 bg-yellow-500 rounded-full animate-ping"></div>
+        </div>
+      </div>
+
+      <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-2">
+        System Upgrade in Progress
+      </h1>
+      <p class="text-slate-400 text-lg mb-8 font-light">
+        Nexus Tech is currently deploying the
+        <span class="text-indigo-400 font-semibold">v2.4 Patch</span>.
+        <br />We'll be back online shortly.
+      </p>
+
+      <div
+        class="bg-slate-950 rounded-lg border border-slate-800 p-4 text-left font-mono text-xs text-slate-500 mb-8 shadow-inner h-24 overflow-hidden flex flex-col justify-end"
+      >
+        <div id="terminal-text" class="space-y-1">
+          <p>> Connecting to database...</p>
+          <p>> Verifying integrity...</p>
+          <p class="text-green-500">> Assets optimitzed.</p>
+          <p class="text-yellow-500">> Deploying new articles...</p>
+          <span class="animate-pulse">_</span>
+        </div>
+      </div>
+
+      <div
+        class="w-full bg-slate-800 rounded-full h-3 mb-4 overflow-hidden border border-slate-700"
+      >
+        <div
+          class="bg-gradient-to-r from-indigo-600 to-cyan-500 h-3 rounded-full animate-loader relative"
+        >
+          <div
+            class="absolute top-0 right-0 bottom-0 w-full bg-gradient-to-l from-white/20 to-transparent"
+          ></div>
+        </div>
+      </div>
+
+      <div class="flex justify-between text-sm font-medium text-slate-400">
+        <span>Estimated time: 2 mins</span>
+        <span id="progress-percent">0%</span>
+      </div>
+    </main>
+
+    <footer class="absolute bottom-8 text-slate-500 text-sm">
+      &copy; 2026 Nexus Tech. All systems normal.
+    </footer>
+
+    <script>
+      // Simulasi angka persen naik
+      const percentEl = document.getElementById("progress-percent");
+      let progress = 0;
+
+      const interval = setInterval(() => {
+        // Logika acak agar terlihat seperti loading beneran (kadang cepat, kadang lambat)
+        progress += Math.floor(Math.random() * 5);
+
+        if (progress > 99) {
+          progress = 99; // Mentok di 99% biar user nunggu
+          clearInterval(interval);
+        }
+
+        percentEl.innerText = progress + "%";
+      }, 150);
+
+      // Simulasi Terminal Log berjalan
+      const terminalEl = document.getElementById("terminal-text");
+      const logs = [
+        "> Clearing cache...",
+        "> Updating Tailwind config...",
+        "> Fetching API data...",
+        "> Compiling React components...",
+        "> Restarting server nodes...",
+      ];
+
+      let logIndex = 0;
+      setInterval(() => {
+        if (logIndex < logs.length) {
+          const p = document.createElement("p");
+          p.innerText = logs[logIndex];
+          // Hapus cursor lama
+          const cursor = terminalEl.querySelector("span");
+          if (cursor) cursor.remove();
+
+          terminalEl.appendChild(p);
+
+          // Tambah cursor baru
+          const newCursor = document.createElement("span");
+          newCursor.className = "animate-pulse";
+          newCursor.innerText = "_";
+          terminalEl.appendChild(newCursor);
+
+          logIndex++;
+        }
+      }, 800);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      React 19.2 is Here: Understanding the New Activity Component | Nexus Tech
+    </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap");
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      /* Syntax Highlighting Base */
+      pre {
+        background-color: #1e293b;
+        border-radius: 0.5rem;
+        padding: 1rem;
+        overflow-x: auto;
+      }
+      code {
+        font-family: "Menlo", "Monaco", "Courier New", monospace;
+        font-size: 0.875rem;
+        color: #e2e8f0;
+      }
+      .token-keyword {
+        color: #c678dd;
+      }
+      .token-function {
+        color: #61afef;
+      }
+      .token-string {
+        color: #98c379;
+      }
+      .token-tag {
+        color: #e06c75;
+      }
+      .token-attr {
+        color: #d19a66;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-slate-50 text-slate-800 antialiased flex flex-col min-h-screen"
+  >
+    <nav
+      class="sticky top-0 z-50 w-full bg-slate-900/95 backdrop-blur-md border-b border-slate-700 shadow-lg"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <a
+            href="index.html"
+            class="flex-shrink-0 flex items-center gap-2 cursor-pointer transition hover:opacity-80"
+          >
+            <div
+              class="w-8 h-8 rounded-full border border-slate-600 bg-indigo-600 flex items-center justify-center text-white font-bold"
+            >
+              N
+            </div>
+            <span class="font-bold text-xl text-white tracking-wide"
+              >Nexus Tech</span
+            >
+          </a>
+          <div class="hidden md:flex gap-8 text-sm font-medium text-slate-300">
+            <a href="index.html" class="hover:text-indigo-400 transition"
+              >Home</a
+            >
+            <a href="article.html" class="text-white font-semibold">Articles</a>
+            <a href="#" class="hover:text-indigo-400 transition">News</a>
+          </div>
+          <div class="flex items-center gap-4">
+            <a
+              href="article.html"
+              class="text-slate-400 hover:text-white transition text-sm"
+            >
+              <i class="fa-solid fa-arrow-left mr-2"></i>Back to Library
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+      <nav class="flex text-sm font-medium text-slate-500 mb-6">
+        <a href="index.html" class="hover:text-indigo-600 transition">Home</a>
+        <span class="mx-2">/</span>
+        <a href="article.html" class="hover:text-indigo-600 transition"
+          >Engineering</a
+        >
+        <span class="mx-2">/</span>
+        <span class="text-indigo-600">Frontend</span>
+      </nav>
+
+      <header class="mb-10 text-center md:text-left">
+        <div
+          class="inline-block px-3 py-1 bg-cyan-100 text-cyan-700 rounded-full text-xs font-bold mb-4"
+        >
+          Software Development
+        </div>
+        <h1
+          class="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6"
+        >
+          React 19.2 is Here: Understanding the New &lt;Activity&gt; Component
+        </h1>
+        <div
+          class="flex items-center justify-center md:justify-start gap-4 border-b border-slate-200 pb-8"
+        >
+          <img
+            src="https://api.dicebear.com/9.x/avataaars/svg?seed=Sarah"
+            alt="Author"
+            class="w-12 h-12 rounded-full border border-slate-300"
+          />
+          <div class="text-left">
+            <p class="text-sm font-bold text-slate-900">Sarah Jenkins</p>
+            <p class="text-xs text-slate-500">
+              Principal Engineer • Oct 28, 2025
+            </p>
+          </div>
+          <div class="ml-auto text-slate-400 text-sm hidden sm:block">
+            <i class="fa-regular fa-clock mr-1"></i> 8 min read
+          </div>
+        </div>
+      </header>
+
+      <figure
+        class="mb-12 rounded-2xl overflow-hidden shadow-xl border border-slate-200"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&q=80&w=2070"
+          alt="React Code on Screen"
+          class="w-full h-[400px] object-cover hover:scale-105 transition duration-700 ease-in-out"
+        />
+        <figcaption
+          class="text-center text-xs text-slate-400 mt-2 py-2 bg-slate-50 italic"
+        >
+          React 19.2 finally stabilizes the long-awaited Offscreen API as
+          "Activity".
+        </figcaption>
+      </figure>
+
+      <article class="prose prose-lg prose-slate max-w-none text-slate-700">
+        <p class="lead text-xl text-slate-600 mb-8 font-light">
+          Released in Oct 2025, React 19.2 brings the new Activity API for
+          better state preservation and Offscreen rendering.
+        </p>
+
+        <p>
+          For years, React developers have faced a common dilemma: how do you
+          hide a component without losing its state? If you unmount it (using
+          conditional rendering), the state is destroyed. If you use CSS (<code
+            >display: none</code
+          >), the component keeps rendering in the background, consuming
+          valuable CPU cycles.
+        </p>
+        <p>
+          With the release of <strong>React 19.2</strong> this week, the team
+          has finally solved this with the stabilization of the
+          <code class="text-indigo-600 font-bold">&lt;Activity&gt;</code>
+          component (previously known experimentally as Offscreen).
+        </p>
+
+        <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">
+          The "Unmount" Problem
+        </h2>
+        <p>
+          Consider a simple Tab interface. When a user switches from "Tab A" to
+          "Tab B", we usually stop rendering Tab A.
+        </p>
+        <pre><code class="language-jsx"><span class="token-keyword">function</span> <span class="token-function">App</span>() {
+  <span class="token-keyword">const</span> [tab, setTab] = <span class="token-function">useState</span>('home');
+
+  <span class="token-comment">// ❌ When this switches, the old component unmounts.</span>
+  <span class="token-comment">// All input data and scroll positions are lost.</span>
+  <span class="token-keyword">return</span> (
+    &lt;&gt;
+      {tab === 'home' && &lt;<span class="token-tag">HomeTab</span> /&gt;}
+      {tab === 'profile' && &lt;<span class="token-tag">ProfileTab</span> /&gt;}
+    &lt;/&gt;
+  );
+}</code></pre>
+
+        <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">
+          Enter the &lt;Activity&gt; Component
+        </h2>
+        <p>
+          The new API allows you to mark a part of your tree as "hidden" but
+          <strong>kept alive</strong>. React will put the component into a
+          special hibernation mode. It won't render updates (saving CPU), but
+          its state remains frozen in memory.
+        </p>
+
+        <div
+          class="bg-indigo-50 border-l-4 border-indigo-500 p-4 my-6 italic text-slate-700"
+        >
+          "Activity allows high-priority updates to skip hidden trees, while
+          preserving their state for instant restoration."
+        </div>
+
+        <p>Here is how the new syntax looks in React 19.2:</p>
+
+        <pre><code class="language-jsx"><span class="token-keyword">import</span> { Activity } <span class="token-keyword">from</span> <span class="token-string">'react'</span>;
+
+<span class="token-keyword">function</span> <span class="token-function">App</span>() {
+  <span class="token-keyword">const</span> [tab, setTab] = <span class="token-function">useState</span>('home');
+
+  <span class="token-keyword">return</span> (
+    &lt;&gt;
+      &lt;<span class="token-tag">Activity</span> <span class="token-attr">mode</span>={tab === 'home' ? 'visible' : 'hidden'}&gt;
+        &lt;<span class="token-tag">HomeTab</span> /&gt;
+      &lt;/<span class="token-tag">Activity</span>&gt;
+
+      &lt;<span class="token-tag">Activity</span> <span class="token-attr">mode</span>={tab === 'profile' ? 'visible' : 'hidden'}&gt;
+        &lt;<span class="token-tag">ProfileTab</span> /&gt;
+      &lt;/<span class="token-tag">Activity</span>&gt;
+    &lt;/&gt;
+  );
+}</code></pre>
+
+        <h3 class="text-xl font-bold text-slate-900 mt-8 mb-4">
+          How it works under the hood
+        </h3>
+        <p class="mb-6">When <code>mode="hidden"</code> is set:</p>
+        <ul class="list-disc list-inside space-y-2 mb-6 ml-4">
+          <li>
+            <strong>Visuals:</strong> React applies
+            <code>display: none</code> to the root DOM node.
+          </li>
+          <li>
+            <strong>Effects:</strong> Layout effects are unmounted, but state is
+            preserved.
+          </li>
+          <li>
+            <strong>Priority:</strong> React lowers the priority of any updates
+            happening inside the hidden tree, so they don't block the main
+            thread for visible UI.
+          </li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">
+          When should you use it?
+        </h2>
+        <p>
+          Don't wrap everything in <code>&lt;Activity&gt;</code>. It consumes
+          memory. The best use cases we have found at Nexus Tech include:
+        </p>
+        <ul class="list-disc list-inside space-y-2 mb-6">
+          <li>
+            <strong>Complex Forms:</strong> Where users might tab away to check
+            info and return.
+          </li>
+          <li>
+            <strong>Data Tables:</strong> Preserving sort order and scroll
+            position.
+          </li>
+          <li>
+            <strong>Infinite Lists:</strong> Avoiding the expensive
+            re-initialization of virtualization libraries.
+          </li>
+        </ul>
+
+        <p class="mt-8">
+          React 19.2 is available now via <code>npm install react@latest</code>.
+        </p>
+      </article>
+
+      <div class="mt-12 pt-8 border-t border-slate-200">
+        <h4 class="text-sm font-bold text-slate-900 mb-3">Related Tags:</h4>
+        <div class="flex flex-wrap gap-2">
+          <span
+            class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-full hover:bg-indigo-600 hover:text-white transition cursor-pointer"
+            >#ReactJS</span
+          >
+          <span
+            class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-full hover:bg-indigo-600 hover:text-white transition cursor-pointer"
+            >#Frontend</span
+          >
+          <span
+            class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-full hover:bg-indigo-600 hover:text-white transition cursor-pointer"
+            >#WebPerformance</span
+          >
+          <span
+            class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-full hover:bg-indigo-600 hover:text-white transition cursor-pointer"
+            >#JavaScript</span
+          >
+        </div>
+      </div>
+    </main>
+
+    <footer
+      class="bg-slate-900 border-t border-slate-800 text-slate-400 py-12 mt-auto"
+    >
+      <div class="max-w-7xl mx-auto px-4 text-center">
+        <div class="flex justify-center gap-6 mb-6">
+          <a href="#" class="hover:text-white transition"
+            ><i class="fa-brands fa-twitter text-xl"></i
+          ></a>
+          <a href="#" class="hover:text-white transition"
+            ><i class="fa-brands fa-github text-xl"></i
+          ></a>
+          <a href="#" class="hover:text-white transition"
+            ><i class="fa-brands fa-youtube text-xl"></i
+          ></a>
+        </div>
+        <p>&copy; 2025 Nexus Tech. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
